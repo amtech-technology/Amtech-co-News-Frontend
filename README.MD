@@ -4,19 +4,6 @@
 
 ---
 
-## Table of Contents
-- [Frontend Description](#frontend-description)
-- [Features](#features)
-- [Screenshot](#screenshot)
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies](#technologies)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
 ## Frontend Description
 
 The frontend of **Amtech-co News** is a modern, responsive, and user-friendly interface designed to showcase the latest technology and business news. It features:
@@ -47,12 +34,16 @@ The frontend is built with **HTML, CSS, and JavaScript**, optimized for performa
 ## Screenshots
 
 **Amtech-co News screenshot 1**
-![Amtech-co News Screenshot](./assets/images/Amtech-co%20news%20(1).png)
+![Amtech-co News Screenshot](./assets/images/Amtech-co%20news%20(2).png)
 
 **Amtech-co News screenshot 2**
-![Amtech-co News Screenshot](./assets/images/Amtech-co%20news%20(2).png)
+![Amtech-co News Screenshot](./assets/images/Amtech-co%20news%20(1).png)
 
 ---
 
 ## Demo
 A live demo of Amtech-co News can be accessed at: [https://news.amtech-co.com](https://news.amtech-co.com)
+
+**Copyright & Credits**
+-------------------
+© 2025 Amtech Technology (Amtech-co LLC | Software). All rights reserved.
