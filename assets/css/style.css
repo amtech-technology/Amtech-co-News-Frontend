@@ -1,0 +1,542 @@
+:root {
+    --background: #f7f7f7;
+    --button: #0b0b1b;
+    /* --dominant-blue: #0010a3; */
+    --dominant-blue: #067ac0;
+    --cards: #e4e7f7;
+    --footer: #f0f3f2;
+    --gray-footer: #6b6b6b;
+    --border: #dcdcdc;
+    --white: #fff;
+    --black: #000;
+    --red: #ffa4a4;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Apply a scroll offset to all sections with an ID */
+[id] {
+    scroll-margin-top: 80px;
+    /* adjust for header/nav height */
+}
+
+.container .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 6em 1em 6em;
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    /* semi-transparent */
+    /*  -webkit-backdrop-filter: blur(10px); */
+    /* adds blur effect */
+    /* backdrop-filter: blur(10px); */
+    /* for Safari */
+}
+
+.container .header .logo a {
+    text-decoration: none;
+    color: var(--dominant-blue);
+}
+
+.container .header .navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 1em;
+}
+
+.container .header .navigation ul li a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.container .header .navigation ul li a:hover {
+    color: var(--dominant-blue);
+}
+
+
+
+
+
+/* Banner container */
+.preview-article-banner {
+    width: 100%;
+    max-width: 85%;
+    height: 30em;
+    margin: 2em auto;
+    position: relative;
+    overflow: hidden;
+    /* hides extra slides */
+    border-radius: 1em;
+}
+
+/* Slides row */
+.slides {
+    display: flex;
+    width: 100%;
+    /* keep relative, JS will move them */
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Each slide */
+.slide {
+    flex: 0 0 100%;
+    /* each slide = full width of banner */
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+/* Image fits inside */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+/* Overlay */
+.slide::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    border-radius: 1em;
+}
+
+/* Text */
+.text-contents {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    color: #fff;
+    z-index: 2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-contents p {
+    padding-top: 0.5em;
+    width: 50%;
+    font-family: 'Roboto', sans-serif;
+    color: var(--border);
+}
+
+.text-contents h3 {
+    font-size: 30px;
+}
+
+/* Dots inside banner */
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 3;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    background: var(--footer);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dots .active {
+    background: var(--dominant-blue);
+}
+
+
+
+
+
+
+
+/* Newest News Section */
+.newest-news {
+    width: 86%;
+    justify-content: center;
+    align-items: center;
+    margin: 3em auto 2em;
+    /* add top margin to separate from banner */
+}
+
+.newest-news h2 {
+    font-size: 2rem;
+    color: var(--dominant-blue);
+    margin-bottom: 1em;
+}
+
+/* Carousel wrapper */
+.news-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* mask-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 1) 2%,
+            rgba(0, 0, 0, 1) 98%,
+            rgba(0, 0, 0, 0)); */
+}
+
+.news-cards-carousel,
+.news-cards-carousel2,
+.news-cards-carousel3,
+.news-cards-carousel4 {
+    display: flex;
+    gap: 1.5em;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* enable snapping */
+    /* padding-bottom: 0.5em; */
+}
+
+.news-card {
+    flex: 0 0 252px;
+    /* width of each card */
+    scroll-snap-align: start;
+    /* snap at start of each card */
+}
+
+
+.news-cards-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.news-cards-carousel2::-webkit-scrollbar {
+    display: none;
+}
+
+.news-cards-carousel3::-webkit-scrollbar {
+    display: none;
+}
+
+.news-cards-carousel4::-webkit-scrollbar {
+    display: none;
+}
+
+.news-card .image {
+    position: relative;
+    width: 100%;
+    height: 18em;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+.news-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.news-card .image:hover img {
+    transform: scale(1.05);
+}
+
+.news-card .image .text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    color: #fff;
+    z-index: 2;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.news-card .image .text-overlay h4 {
+    margin-bottom: 0.5em;
+    font-size: 1.1rem;
+}
+
+.news-card .image .text-overlay p {
+    font-size: 0.85rem;
+    color: var(--border);
+}
+
+/* Carousel buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.2s;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Carousel buttons */
+.carousel-btn2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.2s;
+}
+
+.carousel-btn2:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Carousel buttons */
+.carousel-btn3 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.2s;
+}
+
+.carousel-btn3:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Carousel buttons */
+.carousel-btn4 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.2s;
+}
+
+.carousel-btn4:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+
+.carousel-btn.prev {
+    left: 0.5em;
+}
+
+.carousel-btn.next {
+    right: 0.5em;
+}
+
+.carousel-btn2.prev {
+    left: 0.5em;
+}
+
+.carousel-btn2.next {
+    right: 0.5em;
+}
+
+
+.carousel-btn3.prev {
+    left: 0.5em;
+}
+
+.carousel-btn3.next {
+    right: 0.5em;
+}
+
+.carousel-btn4.prev {
+    left: 0.5em;
+}
+
+.carousel-btn4.next {
+    right: 0.5em;
+}
+
+#label {
+    padding: 0.5em;
+    background: rgba(6, 121, 192, 0.582);
+    border: 1px solid var(--dominant-blue);
+
+    /* semi-transparent */
+    -webkit-backdrop-filter: blur(10px);
+    /* adds blur effect */
+    backdrop-filter: blur(10px);
+    /* for Safari */
+
+    color: var(--white);
+    border-radius: 8px;
+    margin-top: -8em;
+    width: fit-content;
+}
+
+#label2 {
+    padding: 0.5em;
+
+    background: rgba(6, 121, 192, 0.582);
+    border: 1px solid var(--dominant-blue);
+
+    /* semi-transparent */
+    -webkit-backdrop-filter: blur(10px);
+    /* adds blur effect */
+    backdrop-filter: blur(10px);
+    /* for Safari */
+
+    color: var(--white);
+    border-radius: 8px;
+    width: fit-content;
+    font-size: 12px;
+    margin-bottom: 0.8em;
+}
+
+.top-art {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-art a {
+    text-decoration: none;
+    color: var(--dominant-blue);
+}
+
+.top-art a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+/* @media(max-width: 1024px) {
+
+}
+ */
+
+
+/* Extra small devices (phones, less than 576px) */
+@media (min-width: 300px) and (max-width: 575.98px) {
+    .preview-article-banner {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .preview-article-banner .banner {
+        width: 100%;
+    }
+
+    .news-card {
+        flex: 0 0 235px;
+    }
+
+    .news-card .image {
+        height: 18em;
+    }
+
+    .container .header {
+        display: none;
+    }
+
+    .text-contents p {
+        padding-top: 0.5em;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Each slide */
+    .slide {
+        flex: 0 0 100%;
+        /* each slide = full width of banner */
+        height: 30em;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .text-contents h3 {
+        font-size: 20px;
+    }
+}
+
+/* Small devices (portrait phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {}
+
+/* Extra-extra large devices (very large screens, 1400px and up) */
+@media (min-width: 1400px) {}
+
+/* Portrait mode */
+@media (orientation: portrait) {}
+
+/* Landscape mode */
+@media (orientation: landscape) {}
+
+
+
+.footer {
+    background-color: #111;
+    color: #eee;
+    text-align: center;
+    padding: 30px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
