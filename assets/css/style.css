@@ -191,7 +191,7 @@ html {
 }
 
 .newest-news h2 {
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: var(--dominant-blue);
     margin-bottom: 1em;
 }
@@ -444,6 +444,7 @@ html {
 .top-art {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .top-art a {
@@ -489,6 +490,7 @@ html {
         padding-top: 0.5em;
         width: 100%;
         font-family: 'Roboto', sans-serif;
+        font-size: 14px;
     }
 
     /* Each slide */
@@ -501,7 +503,66 @@ html {
     }
 
     .text-contents h3 {
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    /* Newest News Section */
+    .newest-news {
+        width: 93%;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5em auto;
+        /* add top margin to separate from banner */
+    }
+
+    /* Banner container */
+    .preview-article-banner {
+        width: 100%;
+        max-width: 93%;
+        height: 30em;
+        margin: 2em auto;
+        position: relative;
+        overflow: hidden;
+        /* hides extra slides */
+        border-radius: 1em;
+    }
+
+    .news-card {
+        flex: 0 0 170px;
+        /* width of each card */
+        scroll-snap-align: start;
+        /* snap at start of each card */
+    }
+
+    .news-cards-carousel,
+    .news-cards-carousel2,
+    .news-cards-carousel3,
+    .news-cards-carousel4 {
+        display: flex;
+        gap: 0.4em;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        /* enable snapping */
+        /* padding-bottom: 0.5em; */
+    }
+
+    .news-card .image .text-overlay h4 {
+        margin-bottom: 0.5em;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .news-card .image .text-overlay p {
+        font-size: 12px;
+        color: var(--border);
+    }
+
+    .newest-news h2 {
+        font-size: 24px;
+        color: var(--dominant-blue);
+        margin-bottom: 1em;
     }
 }
 
